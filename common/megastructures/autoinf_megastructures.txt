@@ -1,0 +1,187 @@
+autoinf_gateway_upgrade = {
+	entity = "gateway_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	# build_outside_gravity_well = yes						# indicates this will use "free" placement between the system's inner and outer ring
+															# if this option is active, the placement_rules will be completely ignored
+	show_galactic_map_icon = no
+	show_in_outliner = no
+	potential = {
+		has_technology = tech_gateway_activation
+	}
+	possible = {
+		custom_tooltip = {
+			fail_text = "requires_technology_gateway_construction"
+			from = { has_technology = tech_gateway_construction }
+		}
+		from = {
+			OR = {
+				has_country_flag = gateway_reactivated
+				has_country_flag = gateway_built
+			}
+		}
+		NOR = {
+			has_megastructure = gateway_0
+			has_megastructure = gateway_ruined
+			has_megastructure = gateway_restored
+			has_megastructure = gateway_final
+		}
+	}
+	upgrade_from = {
+		hyper_relay
+	}
+	build_time = 2880
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			energy = 6000
+			influence = 75
+		}
+	}
+	construction_blocks_and_blocked_by = self_type
+
+	bypass_type = gateway
+	on_build_complete = {
+		# Solar system scope, from = empire, fromfrom = the megastructure
+		spawn_megastructure = {
+			type = hyper_relay
+			owner = from
+			graphical_culture = from
+			coords_from = fromfrom
+		}
+		spawn_megastructure = {
+			type = gateway_final
+			owner = from
+			graphical_culture = from
+			coords_from = fromfrom
+		}
+		random_system_megastructure = {
+			limit = {
+				is_megastructure_type = gateway_final
+			}
+			activate_gateway = this
+			this.owner = {
+				country_event = { id = apoc.13 }
+				country_event = { id = apoc.11 }
+			}
+		}
+		random_system_megastructure = {
+			limit = {
+				is_megastructure_type = gateway_0
+			}
+			delete_megastructure = this
+		}
+		delete_megastructure = fromfrom
+	}
+}
+
+autoinf_gateway_direct = {
+	entity = "gateway_entity"
+	construction_entity = "construction_platform_entity"
+	portrait = "GFX_megastructure_construction_background"
+	place_entity_on_planet_plane = no
+	build_outside_gravity_well = yes						# indicates this will use "free" placement between the system's inner and outer ring
+															# if this option is active, the placement_rules will be completely ignored
+	show_galactic_map_icon = no
+	show_in_outliner = no
+	overlord_can_upgrade = yes
+
+	potential = {
+		has_technology = tech_gateway_activation
+		is_ai = no
+		OR = {
+			has_country_flag = gateway_reactivated
+			has_country_flag = gateway_built
+		}
+	}
+	possible = {
+		exists = starbase
+		custom_tooltip = {
+			fail_text = "requires_inside_border_or_subject"
+			OR = {
+				is_inside_border = from
+				AND = {
+					exists = owner
+					owner = {
+						is_subject = yes
+						overlord = { is_same_value = from }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_surveyed_system" # or is in my subject's territory
+			OR = {
+				NOT = {
+					any_system_planet = {
+						is_surveyed = {
+							who = prev.from
+							status = no
+						}
+					}
+				}
+				AND = {
+					exists = owner
+					owner = {
+						is_subject = yes
+						overlord = { is_same_value = from }
+					}
+				}
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_no_existing_gateway"
+			NOR = {
+				has_megastructure = gateway_0
+				has_megastructure = gateway_ruined
+				has_megastructure = gateway_restored
+				has_megastructure = gateway_final
+			}
+		}
+		custom_tooltip = {
+			fail_text = "requires_technology_gateway_construction"
+			from = { has_technology = tech_gateway_construction }
+		}
+	}
+
+	build_time = 2880
+	resources = {
+		category = megastructures
+		cost = {
+			alloys = 5000
+			energy = 6000
+			influence = 75
+		}
+	}
+	construction_blocks_and_blocked_by = self_type
+	bypass_type = gateway
+
+	on_build_complete = {
+		# Solar system scope, from = empire, fromfrom = the megastructure
+		spawn_megastructure = {
+			type = gateway_final
+			owner = from
+			graphical_culture = from
+			coords_from = fromfrom
+		}
+		random_system_megastructure = {
+			limit = {
+				is_megastructure_type = gateway_final
+			}
+			activate_gateway = this
+			this.owner = {
+				country_event = { id = apoc.13 }
+				country_event = { id = apoc.11 }
+			}
+		}
+		random_system_megastructure = {
+			limit = {
+				is_megastructure_type = gateway_0
+			}
+			delete_megastructure = this
+		}
+		delete_megastructure = fromfrom
+	}
+}

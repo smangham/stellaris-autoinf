@@ -1,0 +1,9 @@
+﻿l_braz_por:
+ autoinf_gateway_upgrade:0 "$gateway_final$"
+ autoinf_gateway_upgrade_DESC:0 "$gateway_final_DESC$"
+ autoinf_gateway_upgrade_MEGASTRUCTURE_DETAILS:0 "Build a §YGateways§! alongside the §YHyper Relay§! in this system." 
+ autoinf_gateway_direct:0 "$gateway_final$"
+ autoinf_gateway_direct_DESC:0 "$gateway_final_DESC$"
+ autoinf_gateway_direct_MEGASTRUCTURE_DETAILS:0 "A portal through subspace that allows instantaneous travel to other §YGateways§!. Built in a single-stage, without a construction site."
+ gateway_reactivated:0 "reactivated a damaged §YGateway§!"
+ gateway_built:0 "built a §YGateway§! via a §YGateway Site§!"

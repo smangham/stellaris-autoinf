@@ -1,0 +1,54 @@
+# country_event = {
+# 	id = autoinf.1000
+# 	hide_window = yes
+
+# 	is_triggered_only = yes
+
+# 	trigger = {
+# 		is_ai = no
+# 		has_policy_flag = autoinf_flag_gateway
+# 	}
+
+# 	immediate = {
+# 		while = {
+# 			limit = {
+# 				has_country_resource = {
+# 					type = influence
+# 					amount > 249
+# 				}
+# 				has_country_resource = {
+# 					alloys > 4999
+# 				}
+# 				has_country_resource = {
+# 					energy > 5999
+# 				}
+# 			}
+			
+# 			ordered_owned_megastructure = {
+# 				limit = {
+# 					is_megastructure_type = hyper_relay
+# 					is_upgrading = no
+# 					system = {
+# 						NOR = {
+# 							has_megastructure = gateway_0
+# 							has_megastructure = gateway_ruined
+# 							has_megastructure = gateway_restored
+# 							has_megastructure = gateway_final
+# 						}
+# 					}
+# 				}
+# 				order_by = trigger:autoinf_trigger_gateway
+# 				position = 0
+
+# 				update_megastructure_to = autoinf_gateway_upgrade
+# 				prev = {
+# 					add_resource = {
+# 						influence = -70
+# 						alloys = -5000
+# 						energy = -6000
+# 					}
+# 				}
+# 			}
+# 		}
+# 	}
+# }

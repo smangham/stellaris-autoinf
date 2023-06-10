@@ -1,0 +1,48 @@
+# autoinf_policy = {
+# 	potential = {
+# 		is_ai = no
+# 		OR = {
+# 			has_country_flag = gateway_built
+# 			has_country_flag = gateway_reactivated
+# 		}
+# 	}
+
+# 	option = {
+# 		name = "autoinf_policy_manual"
+# 		icon = "GFX_diplomatic_stance_belligerent"
+	
+# 		ai_weight = {
+# 			weight = 1000
+# 		}
+# 	}
+
+# 	option = {
+# 		name = "autoinf_policy_inf_high"
+# 		icon = "GFX_diplomatic_stance_cooperative"
+
+# 		policy_flags = {
+# 			autoinf_flag_gateways
+# 			autoinf_flag_inf_high
+# 		}
+# 	}
+
+# 	option = {
+# 		name = "autoinf_policy_inf_med"
+# 		icon = "GFX_diplomatic_stance_cooperative"
+
+# 		policy_flags = {
+# 			autoinf_flag_gateways
+# 			autoinf_flag_inf_med
+# 		}
+# 	}
+
+# 	option = {
+# 		name = "autoinf_policy_inf_low"
+# 		icon = "GFX_diplomatic_stance_cooperative"
+
+# 		policy_flags = {
+# 			autoinf_flag_gateways
+# 			autoinf_flag_inf_low
+# 		}
+# 	}
+# }
