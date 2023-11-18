@@ -1,4 +1,4 @@
-[b]Version 3.8.*[/b]
+[b]Version 3.10.*[/b]
 
 As midgame rolls round, your Hyper Relay network will gradually want upgrading to Gateways. However, whilst it's easy to build a Hyper Relay from the galaxy map, the same is not true of Gateways... requiring multiple stages of upgrade. This mod tries to make it a bit less of a faff.
 

@@ -1,8 +1,8 @@
-version="3.8.*"
+version="3.10.*"
 tags={
 	"Gameplay"
 }
-name="[3.8] Automate Infrastructure - Hyper Relays and Gateways"
+name="[3.10] Automate Infrastructure - Hyper Relays and Gateways"
 picture="thumbnail.png"
-supported_version="3.8.*"
+supported_version="3.10.*"
 remote_file_id="2987439465"
