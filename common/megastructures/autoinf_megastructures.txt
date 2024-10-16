@@ -7,6 +7,8 @@ autoinf_gateway_upgrade = {
 															# if this option is active, the placement_rules will be completely ignored
 	show_galactic_map_icon = no
 	show_in_outliner = no
+	overlord_can_upgrade = yes
+
 	potential = {
 		has_technology = tech_gateway_activation
 	}
